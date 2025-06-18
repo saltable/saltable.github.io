@@ -3,36 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        h1 {
-            color: #333;
-            border-bottom: 2px solid #ccc;
-            padding-bottom: 10px;
-        }
-        .section {
-            margin: 20px 0;
-        }
-    </style>
+    <title>ホームページ</title>
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <h1>Welcome to My Website</h1>
-    
-    <div class="section">
-        <h2>About</h2>
-        <p>こちらにサイトの説明を記載してください。</p>
-    </div>
-
-    <div class="section">
-        <h2>Contact</h2>
-        <p>連絡先情報があれば記載してください。</p>
-    </div>
+    <header>
+        <h1>ようこそ！</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">私たちについて</a></li>
+                <li><a href="#services">サービス</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="about">
+            <h2>私たちについて</h2>
+            <p>私たちは最高のサービスを提供することを目指しています。</p>
+            <div class="center-btn">
+                <a href="about.html" class="btn">詳しく見る</a>
+            </div>
+        </section>
+        <section id="services">
+            <h2>サービス</h2>
+            <p>私たちの提供するサービスについての詳細です。</p>
+            <div class="center-btn">
+                <a href="services.html" class="btn">サービス一覧</a>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>お問い合わせ</h2>
+            <p>ご質問がある場合は、こちらからお問い合わせください。</p>
+            <div class="center-btn">
+                <a href="contact.html" class="btn">お問い合わせフォームへ</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 ホームページプロジェクト</p>
+    </footer>
+    <script src="scripts/main.js"></script>
 </body>
 </html>
