@@ -1,37 +1,37 @@
+.center-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
 .center-btn {
     display: flex;
     justify-content: center;
-    margin: 20px 0;
+    margin: 20px 0 40px 0;
 }
 
-.center-btn button {
+.btn {
+    display: inline-block;
     padding: 10px 30px;
     font-size: 1em;
     background-color: #007acc;
     color: #fff;
     border: none;
     border-radius: 5px;
+    text-decoration: none;
     cursor: pointer;
     transition: background 0.2s;
 }
 
-.center-btn button:hover {
-    background-color: #005fa3;
-}.btn {
-  display: inline-block;
-  padding: 10px 30px;
-  font-size: 1em;
-  background-color: #007acc;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background 0.2s;
-}
 .btn:hover {
-  background-color: #005fa3;
-}body {
+    background-color: #005fa3;
+}
+
+body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -77,4 +77,41 @@ nav a:hover {
     position: relative;
     bottom: 0;
     width: 100%;
+}
+
+#about,
+#services,
+#contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh; /* セクションの高さを調整 */
+    text-align: center;
+}
+
+section ul {
+    margin: 20px 0;
+    padding-left: 20px;
+    text-align: left;
+    display: inline
+}
+
+form input[type="text"],
+form input[type="email"] {
+    width: 300px;
+    padding: 8px;
+    font-size: 1em;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+form textarea {
+    width: 400px;
+    padding: 8px;
+    font-size: 1em;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    resize: vertical;
 }
