@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ホームページ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f9f9f9; }
+        header { font-size: 2em; margin-bottom: 20px; }
+        main { background: #fff; padding: 20px; border-radius: 8px; }
+        footer { margin-top: 30px; color: #888; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <header>
+        ようこそ、私のホームページへ！
+    </header>
+    <main>
+        <p>ここはサンプルのホームページです。</p>
+        <p>ご自由にカスタマイズしてください。</p>
+    </main>
+    <footer>
+        &copy; 2025 あなたの名前
+    </footer>
+</body>
+</html>
