@@ -53,114 +53,114 @@
         </section>
 
         <div id="menu-images"></div>
-           <script>
-        function getCurrentTimestamp() {
-          const now = new Date();
-          const yyyy = now.getFullYear();
-          const MM = String(now.getMonth() + 1).padStart(2, '0');
-          const dd = String(now.getDate()).padStart(2, '0');
-          const hh = String(now.getHours()).padStart(2, '0');
-          const mm = String(now.getMinutes()).padStart(2, '0');
-          const ss = String(now.getSeconds()).padStart(2, '0');
-          return `${yyyy}${MM}${dd}${hh}${mm}${ss}`;
-        }
-    
-        function createReloadableImage(baseUrl) {
-          const img = document.createElement("img");
-          const updateSrc = () => {
-            img.src = `${baseUrl}${getCurrentTimestamp()}`;
-          };
-          updateSrc();
-          img.alt = "食堂ヘッダー画像";
-          img.style.cursor = "pointer";
-          img.addEventListener("click", updateSrc);
-          return img;
-        }
-    
-        function shouldShowMenuHeaderImages() {
-          const now = new Date();
-          const day = now.getDay(); // 日曜:0
-          const hour = now.getHours();
-          return day !== 0 && hour >= 11 && hour < 14;
-        }
-    
-        if (shouldShowMenuHeaderImages()) {
-          const headerImageContainer = document.getElementById("menuHeaderImages");
-          headerImageContainer.style.display = "flex";
-          headerImageContainer.appendChild(createReloadableImage("https://www.cit-s.com/i_catch/dining/narashino1.jpg?"));
-          headerImageContainer.appendChild(createReloadableImage("https://www.cit-s.com/i_catch/dining/narashino2.jpg?"));
-          document.getElementById("imageUpdateNote").style.display = "block";
-        }
-    
-        function getMenuURL(baseName) {
-          const today = new Date();
-          const day = today.getDay();
-          const sunday = new Date(today);
-          sunday.setDate(today.getDate() - day);
-          const weekdays = [];
-          for (let i = 1; i <= 5; i++) {
-            const d = new Date(sunday);
-            d.setDate(sunday.getDate() + i);
-            weekdays.push(d);
-          }
-          const monthCounts = {};
-          for (const d of weekdays) {
-            const yyyymm = `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}`;
-            monthCounts[yyyymm] = (monthCounts[yyyymm] || 0) + 1;
-          }
-          const sortedMonths = Object.keys(monthCounts).sort((a, b) => {
-            if (monthCounts[a] === monthCounts[b]) return b.localeCompare(a);
-            return monthCounts[b] - monthCounts[a];
-          });
-          const targetMonth = sortedMonths[0];
-          const startDate = new Date(Number(targetMonth.slice(0, 4)), Number(targetMonth.slice(4)) - 1, 1);
-          startDate.setDate(startDate.getDate() - startDate.getDay());
-          let weekNumber = 0;
-          const now = new Date();
-          while (startDate <= now) {
-            let hasWeekdayInTargetMonth = false;
-            for (let i = 1; i <= 5; i++) {
-              const d = new Date(startDate);
-              d.setDate(startDate.getDate() + i);
-              const yyyymm = `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}`;
-              if (yyyymm === targetMonth) {
-                hasWeekdayInTargetMonth = true;
-                break;
+         <script>
+            function getCurrentTimestamp() {
+              const now = new Date();
+              const yyyy = now.getFullYear();
+              const MM = String(now.getMonth() + 1).padStart(2, '0');
+              const dd = String(now.getDate()).padStart(2, '0');
+              const hh = String(now.getHours()).padStart(2, '0');
+              const mm = String(now.getMinutes()).padStart(2, '0');
+              const ss = String(now.getSeconds()).padStart(2, '0');
+              return `${yyyy}${MM}${dd}${hh}${mm}${ss}`;
+            }
+        
+            function createReloadableImage(baseUrl) {
+              const img = document.createElement("img");
+              const updateSrc = () => {
+                img.src = `${baseUrl}${getCurrentTimestamp()}`;
+              };
+              updateSrc();
+              img.alt = "食堂ヘッダー画像";
+              img.style.cursor = "pointer";
+              img.addEventListener("click", updateSrc);
+              return img;
+            }
+        
+            function shouldShowMenuHeaderImages() {
+              const now = new Date();
+              const day = now.getDay(); // 日曜:0
+              const hour = now.getHours();
+              return day !== 0 && hour >= 11 && hour < 14;
+            }
+        
+            if (shouldShowMenuHeaderImages()) {
+              const headerImageContainer = document.getElementById("menuHeaderImages");
+              headerImageContainer.style.display = "flex";
+              headerImageContainer.appendChild(createReloadableImage("https://www.cit-s.com/i_catch/dining/narashino1.jpg?"));
+              headerImageContainer.appendChild(createReloadableImage("https://www.cit-s.com/i_catch/dining/narashino2.jpg?"));
+              document.getElementById("imageUpdateNote").style.display = "block";
+            }
+        
+            function getMenuURL(baseName) {
+              const today = new Date();
+              const day = today.getDay();
+              const sunday = new Date(today);
+              sunday.setDate(today.getDate() - day);
+              const weekdays = [];
+              for (let i = 1; i <= 5; i++) {
+                const d = new Date(sunday);
+                d.setDate(sunday.getDate() + i);
+                weekdays.push(d);
               }
+              const monthCounts = {};
+              for (const d of weekdays) {
+                const yyyymm = `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}`;
+                monthCounts[yyyymm] = (monthCounts[yyyymm] || 0) + 1;
+              }
+              const sortedMonths = Object.keys(monthCounts).sort((a, b) => {
+                if (monthCounts[a] === monthCounts[b]) return b.localeCompare(a);
+                return monthCounts[b] - monthCounts[a];
+              });
+              const targetMonth = sortedMonths[0];
+              const startDate = new Date(Number(targetMonth.slice(0, 4)), Number(targetMonth.slice(4)) - 1, 1);
+              startDate.setDate(startDate.getDate() - startDate.getDay());
+              let weekNumber = 0;
+              const now = new Date();
+              while (startDate <= now) {
+                let hasWeekdayInTargetMonth = false;
+                for (let i = 1; i <= 5; i++) {
+                  const d = new Date(startDate);
+                  d.setDate(startDate.getDate() + i);
+                  const yyyymm = `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}`;
+                  if (yyyymm === targetMonth) {
+                    hasWeekdayInTargetMonth = true;
+                    break;
+                  }
+                }
+                if (hasWeekdayInTargetMonth) {
+                  weekNumber++;
+                }
+                startDate.setDate(startDate.getDate() + 7);
+              }
+              return `https://www.cit-s.com/wp/wp-content/themes/cit/menu/${baseName}_${targetMonth}_${weekNumber}.png`;
             }
-            if (hasWeekdayInTargetMonth) {
-              weekNumber++;
-            }
-            startDate.setDate(startDate.getDate() + 7);
-          }
-          return `https://www.cit-s.com/wp/wp-content/themes/cit/menu/${baseName}_${targetMonth}_${weekNumber}.png`;
-        }
-    
-        const menu1 = document.createElement("img");
-        menu1.src = getMenuURL("sd1");
-        menu1.alt = "食堂メニュー1";
-        document.getElementById("menu1").appendChild(menu1);
-    
-        const menu2 = document.createElement("img");
-        menu2.src = getMenuURL("sd2");
-        menu2.alt = "食堂メニュー2";
-        document.getElementById("menu2").appendChild(menu2);
-    
-        document.getElementById("go-today").addEventListener("click", () => {
-          const days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-          const today = new Date().getDay();
-          const target = days[today];
-          location.href = `${target}.html`;
-        });
-    
-        document.addEventListener('DOMContentLoaded', () => {
-            const popupFlag = document.getElementById('eventPopupFlag');
-            if (!localStorage.getItem('eventPopupShown')) {
-                popupFlag.checked = true;
-                localStorage.setItem('eventPopupShown', 'true');
-            }
-        });
-      </script>
+        
+            const menu1 = document.createElement("img");
+            menu1.src = getMenuURL("sd1");
+            menu1.alt = "食堂メニュー1";
+            document.getElementById("menu1").appendChild(menu1);
+        
+            const menu2 = document.createElement("img");
+            menu2.src = getMenuURL("sd2");
+            menu2.alt = "食堂メニュー2";
+            document.getElementById("menu2").appendChild(menu2);
+        
+            document.getElementById("go-today").addEventListener("click", () => {
+              const days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+              const today = new Date().getDay();
+              const target = days[today];
+              location.href = `${target}.html`;
+            });
+        
+            document.addEventListener('DOMContentLoaded', () => {
+                const popupFlag = document.getElementById('eventPopupFlag');
+                if (!localStorage.getItem('eventPopupShown')) {
+                    popupFlag.checked = true;
+                    localStorage.setItem('eventPopupShown', 'true');
+                }
+            });
+          </script>
     </main>
     <footer>
         <p>&copy; 2023 ホームページプロジェクト</p>
