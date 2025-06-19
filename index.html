@@ -51,6 +51,23 @@
                 <a href="contact.html" class="btn">お問い合わせフォームへ</a>
             </div>
         </section>
+
+        <div id="menu-images"></div>
+        <script>
+          const baseName = 'dining';
+          // 現在の年月を取得して "YYYYMM" 形式にする
+          const now = new Date();
+          const year = now.getFullYear();
+          const month = String(now.getMonth() + 1).padStart(2, '0');
+          const targetMonth = `${year}${month}`;
+          const weeks = [1, 2, 3, 4];
+        
+          const menuDiv = document.getElementById('menu-images');
+          menuDiv.innerHTML = weeks.map(week => {
+            const url = `https://www.cit-s.com/wp/wp-content/themes/cit/menu/${baseName}_${targetMonth}_${week}.png`;
+            return `<div style="margin:10px 0;"><img src="${url}" alt="メニュー${week}週目" style="max-width:100%;"></div>`;
+          }).join('');
+        </script>
     </main>
     <footer>
         <p>&copy; 2023 ホームページプロジェクト</p>
