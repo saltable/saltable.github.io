@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Cache-Control" content="no-store">
   <title>ラクア Ver15</title>
-  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="main.css" />
   <link rel="apple-touch-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy-TqUoSIxdkbPuooctOiqi5gifXDO0oV1bQ&s"/>
   <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy-TqUoSIxdkbPu0octOiqi5gifXDO0oV1bQ&s">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -137,13 +137,6 @@
   <div id="menu1" class="menu-image"></div>
   <div id="menu2" class="menu-image"></div>
   
-
-  <input type="checkbox" class="popup-flag" id="eventPopupFlag">
-  <label class="popup-background" for="eventPopupFlag"></label>
-  
-
- 
-
   <script>
     function getCurrentTimestamp() {
       const now = new Date();
@@ -170,7 +163,7 @@
 
     function shouldShowMenuHeaderImages() {
       const now = new Date();
-      const day = now.getDay(); // 日曜:0
+      const day = now.getDay();
       const hour = now.getHours();
       return day !== 0 && hour >= 11 && hour < 14;
     }
@@ -244,13 +237,6 @@
       location.href = `${target}.html`;
     });
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const popupFlag = document.getElementById('eventPopupFlag');
-        if (!localStorage.getItem('eventPopupShown')) {
-            popupFlag.checked = true;
-            localStorage.setItem('eventPopupShown', 'true');
-        }
-    });
   </script>
 </body>
 </html>
