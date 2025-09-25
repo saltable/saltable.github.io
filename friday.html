@@ -10,40 +10,13 @@
     <a href="index.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy-TqUoSIxdkbPuooctOiqi5gifXDO0oV1bQ&s" alt="ホーム" /></a>
   </header>
   <h1>金曜日</h1>
-  <a id="btn-com-tk" class="button hidden" href="https://attendance.is.it-chiba.ac.jp/attendance/class_room/5103" target="_blank">
+  <a id="btn-com-tk" class="button" href="https://attendance.is.it-chiba.ac.jp/attendance/class_room/5103" target="_blank">
     金23 統計解析
 
-  <a id="btn-com-aso" class="button hidden" href="https://attendance.is.it-chiba.ac.jp/attendance/class_room/7205" target="_blank">
+  <a id="btn-com-aso" class="button" href="https://attendance.is.it-chiba.ac.jp/attendance/class_room/7205" target="_blank">
     金56 遊びと社会
   </a>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const now = new Date();
-      const time = now.getHours() + now.getMinutes() / 60;
 
-      const classes = [
-        { btnId: 'btn-com-tk', start: 9.5, end: 11 }, 
-        { btnId: 'btn-com-aso', start: 12.5, end: 14 }, 
-      ];
-
-      let visibleCount = 0;
-
-      classes.forEach(c => {
-        const btn = document.getElementById(c.btnId);
-        if (!btn) return;
-        if (time >= c.start && time <= c.end) {
-          btn.classList.remove('hidden');
-          visibleCount++;
-        } else {
-          btn.classList.add('hidden');
-        }
-      });
-
-      if (visibleCount === 0) {
-        document.getElementById('no-class-msg').classList.remove('hidden');
-      }
-    });
-  </script>
 </body>
 </html>
