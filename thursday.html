@@ -4,7 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>木曜日</title>
-  <link rel="stylesheet" href="main.css" /> </head>
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    /* 新しい要素のためのCSS */
+    .controls {
+      margin-top: 20px;
+    }
+    #roomNumberInput {
+      padding: 5px;
+      font-size: 16px;
+      width: 150px;
+      margin-right: 10px;
+    }
+    #generateLinkBtn {
+      padding: 8px 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    /* 既存のボタンのhiddenクラスを無効化 */
+    .button.hidden {
+      display: block !important;
+    }
+  </style>
+</head>
 <body>
   <header>
     <a href="index.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy-TqUoSIxdkbPuooctOiqi5gifXDO0oV1bQ&s" alt="ホーム" /></a>
@@ -14,5 +36,33 @@
     木34 人工知能基礎
   </a>
 
+  <div class="controls">
+    <label for="roomNumberInput">教室番号を入力:</label>
+    <input type="text" id="roomNumberInput" placeholder="例: 8102">
+    <button id="generateLinkBtn">リンクを生成</button>
+  </div>
+  <a id="dynamicLink" class="button hidden" href="#" target="_blank">指定された教室へ</a>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const roomNumberInput = document.getElementById('roomNumberInput');
+      const generateLinkBtn = document.getElementById('generateLinkBtn');
+      const dynamicLink = document.getElementById('dynamicLink');
+
+      generateLinkBtn.addEventListener('click', () => {
+        const roomNumber = roomNumberInput.value.trim();
+
+        if (roomNumber) {
+          const baseUrl = "https://attendance.is.it-chiba.ac.jp/attendance/class_room/";
+          const newUrl = baseUrl + roomNumber;
+          dynamicLink.href = newUrl;
+          dynamicLink.textContent = `教室 ${roomNumber} へ`;
+          dynamicLink.classList.remove('hidden');
+        } else {
+          dynamicLink.classList.add('hidden');
+        }
+      });
+    });
+  </script>
 </body>
 </html>

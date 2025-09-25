@@ -151,3 +151,22 @@ form textarea {
     color: #888;
     font-size: 1.1em;
 }
+
+/* 新規追加スタイル */
+.controls {
+  margin-top: 20px;
+}
+#roomNumberInput {
+  padding: 5px;
+  font-size: 16px;
+  width: 150px;
+  margin-right: 10px;
+}
+#generateLinkBtn {
+  padding: 8px 15px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.hidden {
+  display: block !important;
+}

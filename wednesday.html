@@ -4,49 +4,66 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>水曜日</title>
-  <link rel="stylesheet" href="main.css" /> </head>
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    /* 新しい要素のためのCSS */
+    .controls {
+      margin-top: 20px;
+    }
+    #roomNumberInput {
+      padding: 5px;
+      font-size: 16px;
+      width: 150px;
+      margin-right: 10px;
+    }
+    #generateLinkBtn {
+      padding: 8px 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
 <body>
   <header>
     <a href="index.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy-TqUoSIxdkbPuooctOiqi5gifXDO0oV1bQ&s" alt="ホーム" /></a>
   </header>
   <h1>水曜日</h1>
-  <a id="btn-com-degifabu" class="button hidden" href="https://attendance.is.it-chiba.ac.jp/attendance/class_room/7104" target="_blank">
+  <a id="btn-com-degifabu" class="button" href="https://attendance.is.it-chiba.ac.jp/attendance/class_room/7104" target="_blank">
     水12 デジタルファブリケーション
   </a>
-  <a id="btn-com-media" class="button hidden" href="https://attendance.is.it-chiba.ac.jp/attendance/class_room/7103" target="_blank">
+  <a id="btn-com-media" class="button" href="https://attendance.is.it-chiba.ac.jp/attendance/class_room/7103" target="_blank">
     水45 メディア基礎
   </a>
-  <a id="btn-com-program" class="button hidden" href="https://attendance.is.it-chiba.ac.jp/attendance/class_room/7104" target="_blank">
+  <a id="btn-com-program" class="button" href="https://attendance.is.it-chiba.ac.jp/attendance/class_room/7104" target="_blank">
     水67 プログラミング言語応用
   </a>
 
+  <div class="controls">
+    <label for="roomNumberInput">教室番号を入力:</label>
+    <input type="text" id="roomNumberInput" placeholder="例: 8102">
+    <button id="generateLinkBtn">リンクを生成</button>
+  </div>
+  <a id="dynamicLink" class="button hidden" href="#" target="_blank">指定された教室へ</a>
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const now = new Date();
-      const time = now.getHours() + now.getMinutes() / 60;
+      const roomNumberInput = document.getElementById('roomNumberInput');
+      const generateLinkBtn = document.getElementById('generateLinkBtn');
+      const dynamicLink = document.getElementById('dynamicLink');
 
-      const classes = [
-        { btnId: 'btn-com-degifabu', start: 8.5, end: 10 },        
-        { btnId: 'btn-com-media', start: 11.5, end: 13 },        
-        { btnId: 'btn-com-program', start: 14.5, end: 16 },        
-      ];
+      generateLinkBtn.addEventListener('click', () => {
+        const roomNumber = roomNumberInput.value.trim();
 
-      let visibleCount = 0;
-
-      classes.forEach(c => {
-        const btn = document.getElementById(c.btnId);
-        if (!btn) return;
-        if (time >= c.start && time <= c.end) {
-          btn.classList.remove('hidden');
-          visibleCount++;
+        if (roomNumber) {
+          const baseUrl = "https://attendance.is.it-chiba.ac.jp/attendance/class_room/";
+          const newUrl = baseUrl + roomNumber;
+          dynamicLink.href = newUrl;
+          dynamicLink.textContent = `教室 ${roomNumber} へ`;
+          dynamicLink.classList.remove('hidden');
         } else {
-          btn.classList.add('hidden');
+          dynamicLink.classList.add('hidden');
         }
       });
-
-      if (visibleCount === 0) {
-        document.getElementById('no-class-msg').classList.remove('hidden');
-      }
     });
   </script>
 </body>
