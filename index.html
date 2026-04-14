@@ -131,7 +131,7 @@
   </div>
 
   <div class="menu-header-images" id="menuHeaderImages" style="display: none;"></div>
-  <h id="imageUpdateNote" style="display: none;">画像タップで最新画像に更新</h>
+  <h2 id="imageUpdateNote" style="display: none;">画像タップで最新画像に更新</h2>
 
   <h1>今週の食堂メニュー</h1>
   <div id="menu" class="menu-image"></div>
@@ -218,10 +218,10 @@
       return `https://www.cit-s.com/wp/wp-content/themes/cit/menu/${baseName}_${targetMonth}_${weekNumber}.png`;
     }
 
-    
+    ({
     const menu = document.createElement("img");
-    menu1.src = getMenuURL("td");
-    menu1.alt = "食堂メニュー";
+    menu.src = getMenuURL("td");
+    menu.alt = "食堂メニュー";
     document.getElementById("menu").appendChild(menu);
     });
 
