@@ -137,6 +137,20 @@
   <div id="menu" class="menu-image"></div>
   
   <script>
+    document.getElementById('go-today').addEventListener('click', () => {
+  // 本日の曜日を取得
+  const today = new Date();
+  const day = today.getDay();
+  const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+  const dayName = dayNames[day];
+  
+  // 対応するページへ遷移
+  if (dayName === 'sunday') {
+    alert('日曜日は授業がありません');
+  } else {
+    location.href = dayName + '.html';
+  }
+});
     function getCurrentTimestamp() {
       const now = new Date();
       const yyyy = now.getFullYear();
