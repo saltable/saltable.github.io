@@ -1,1 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>月曜日</title>
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <header>
+    <a href="index.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy-TqUoSIxdkbPuooctOiqi5gifXDO0oV1bQ&s" alt="ホーム" /></a>
+  </header>
+  <h1>月曜日</h1>
+  <a id="btn-multi" class="button" href="https://attendance.is.it-chiba.ac.jp/attendance/class_room/1102" target="_blank">
+    月12 マルチエージェントシステム
+  </a>
+  <a id="btn-pic" class="button" href="https://attendance.is.it-chiba.ac.jp/attendance/class_room/1102" target="_blank">
+    月34 画像処理基礎
+  </a>
+  <a id="btn-media" class="button" href="https://attendance.is.it-chiba.ac.jp/attendance/class_room/1102" target="_blank">
+    月6789 メディア工学実験
+  </a>
 
+  <div class="controls">
+    <label for="roomNumberInput">教室番号を入力:</label>
+    <input type="number" id="roomNumberInput" placeholder="例: 1102" inputmode="numeric" pattern="[0-9]*">
+    <button id="generateLinkBtn">リンクを生成</button>
+  </div>
+  <a id="dynamicLink" class="button" href="#" target="_blank" style="display: none;">指定された教室へ</a>
+
+  <script src="custom.js"></script>
+</body>
+</html>
