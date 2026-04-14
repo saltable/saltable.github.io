@@ -116,8 +116,7 @@ form textarea {
     resize: vertical;
 }
 
-#menu1 img,
-#menu2 img {
+#menu img {
     max-width: 300px;
     height: auto;
     border-radius: 8px;
