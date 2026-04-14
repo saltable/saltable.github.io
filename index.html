@@ -220,21 +220,11 @@
       return `https://www.cit-s.com/wp/wp-content/themes/cit/menu/${baseName}_${targetMonth}_${weekNumber}.png`;
     }
 
-    const menu1 = document.createElement("img");
-    menu1.src = getMenuURL("sd1");
-    menu1.alt = "食堂メニュー1";
+    
+    const menu = document.createElement("img");
+    menu1.src = getMenuURL("td");
+    menu1.alt = "食堂メニュー";
     document.getElementById("menu1").appendChild(menu1);
-
-    const menu2 = document.createElement("img");
-    menu2.src = getMenuURL("sd2");
-    menu2.alt = "食堂メニュー2";
-    document.getElementById("menu2").appendChild(menu2);
-
-    document.getElementById("go-today").addEventListener("click", () => {
-      const days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-      const today = new Date().getDay();
-      const target = days[today];
-      location.href = `${target}.html`;
     });
 
   </script>
